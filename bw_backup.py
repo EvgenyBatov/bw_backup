@@ -10,6 +10,7 @@ password = credential.password
 bw = BwWrapper()
 try:
     bw.login(username, password)
+    bw.sync()
     backup = bw.list_items()
     encrypted_backup = encryption.password_encrypt(backup, password)
     dbx.upload(encrypted_backup)

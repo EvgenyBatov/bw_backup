@@ -7,8 +7,6 @@ class BwWrapper():
         self.session_id = None
 
     def login(self, username, password):
-        #result = subprocess.run(["bw", "login", username, password], stdout=subprocess.PIPE)
-        #output = result.stdout.decode("utf-8")
         process = pexpect.spawn('bw login')
         process.expect('Email address:')
         process.sendline(username)
@@ -28,3 +26,6 @@ class BwWrapper():
     def list_items(self):
         result = subprocess.run(['bw', 'list', 'items', '--session', self.session_id], stdout=subprocess.PIPE)
         return result.stdout
+
+    def sync(self):
+        subprocess.run(['bw', 'sync', '--session', self.session_id], stdout=subprocess.PIPE)
