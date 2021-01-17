@@ -1,4 +1,0 @@
-~/.gnupg/gpg-agent.conf
-
-default-cache-ttl 1
-max-cache-ttl 1
